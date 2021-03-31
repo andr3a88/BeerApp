@@ -11,7 +11,7 @@
 		FC16357726122BC500EFCC00 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC16357626122BC500EFCC00 /* ContentView.swift */; };
 		FC16357926122BC700EFCC00 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FC16357826122BC700EFCC00 /* Assets.xcassets */; };
 		FC16357C26122BC700EFCC00 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FC16357B26122BC700EFCC00 /* Preview Assets.xcassets */; };
-		FC16357E26122BC700EFCC00 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC16357D26122BC700EFCC00 /* Persistence.swift */; };
+		FC16357E26122BC700EFCC00 /* PersistenceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC16357D26122BC700EFCC00 /* PersistenceController.swift */; };
 		FC16358126122BC700EFCC00 /* BeerApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FC16357F26122BC700EFCC00 /* BeerApp.xcdatamodeld */; };
 		FC16358C26122BC800EFCC00 /* BeerAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC16358B26122BC800EFCC00 /* BeerAppTests.swift */; };
 		FC16359726122BC800EFCC00 /* BeerAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC16359626122BC800EFCC00 /* BeerAppUITests.swift */; };
@@ -40,7 +40,7 @@
 		FC16357626122BC500EFCC00 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		FC16357826122BC700EFCC00 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FC16357B26122BC700EFCC00 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		FC16357D26122BC700EFCC00 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
+		FC16357D26122BC700EFCC00 /* PersistenceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceController.swift; sourceTree = "<group>"; };
 		FC16358026122BC700EFCC00 /* BeerApp.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = BeerApp.xcdatamodel; sourceTree = "<group>"; };
 		FC16358226122BC700EFCC00 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FC16358726122BC800EFCC00 /* BeerAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BeerAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -77,6 +77,48 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		67BA996F2614DB1C008FB486 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				FC16357826122BC700EFCC00 /* Assets.xcassets */,
+				FC16358226122BC700EFCC00 /* Info.plist */,
+				FC16357A26122BC700EFCC00 /* Preview Content */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		67BA99702614DB45008FB486 /* CoreDataModel */ = {
+			isa = PBXGroup;
+			children = (
+				FC16357F26122BC700EFCC00 /* BeerApp.xcdatamodeld */,
+			);
+			path = CoreDataModel;
+			sourceTree = "<group>";
+		};
+		67BA99712614DB5F008FB486 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				FC16357D26122BC700EFCC00 /* PersistenceController.swift */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		67BA99782614DB73008FB486 /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				67BA99792614DB7C008FB486 /* Main */,
+			);
+			path = Scenes;
+			sourceTree = "<group>";
+		};
+		67BA99792614DB7C008FB486 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				FC16357626122BC500EFCC00 /* ContentView.swift */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
 		FC16356826122BC500EFCC00 = {
 			isa = PBXGroup;
 			children = (
@@ -102,13 +144,10 @@
 			isa = PBXGroup;
 			children = (
 				FC16357426122BC500EFCC00 /* BeerAppApp.swift */,
-				FC16357626122BC500EFCC00 /* ContentView.swift */,
-				FC1635A826122CC100EFCC00 /* Persistence */,
-				FC1635A726122CAC00EFCC00 /* Network */,
-				FC16357826122BC700EFCC00 /* Assets.xcassets */,
-				FC16358226122BC700EFCC00 /* Info.plist */,
-				FC16357F26122BC700EFCC00 /* BeerApp.xcdatamodeld */,
-				FC16357A26122BC700EFCC00 /* Preview Content */,
+				67BA99712614DB5F008FB486 /* Classes */,
+				67BA99702614DB45008FB486 /* CoreDataModel */,
+				67BA996F2614DB1C008FB486 /* Resources */,
+				67BA99782614DB73008FB486 /* Scenes */,
 			);
 			path = BeerApp;
 			sourceTree = "<group>";
@@ -137,21 +176,6 @@
 				FC16359826122BC800EFCC00 /* Info.plist */,
 			);
 			path = BeerAppUITests;
-			sourceTree = "<group>";
-		};
-		FC1635A726122CAC00EFCC00 /* Network */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Network;
-			sourceTree = "<group>";
-		};
-		FC1635A826122CC100EFCC00 /* Persistence */ = {
-			isa = PBXGroup;
-			children = (
-				FC16357D26122BC700EFCC00 /* Persistence.swift */,
-			);
-			path = Persistence;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -305,7 +329,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FC16357E26122BC700EFCC00 /* Persistence.swift in Sources */,
+				FC16357E26122BC700EFCC00 /* PersistenceController.swift in Sources */,
 				FC16357726122BC500EFCC00 /* ContentView.swift in Sources */,
 				FC16357526122BC500EFCC00 /* BeerAppApp.swift in Sources */,
 				FC16358126122BC700EFCC00 /* BeerApp.xcdatamodeld in Sources */,
@@ -466,10 +490,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_ASSET_PATHS = "\"BeerApp/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"BeerApp/Resources/Preview Content\"";
 				DEVELOPMENT_TEAM = A2VGE7F94S;
 				ENABLE_PREVIEWS = YES;
-				INFOPLIST_FILE = BeerApp/Info.plist;
+				INFOPLIST_FILE = BeerApp/Resources/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -488,10 +512,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_ASSET_PATHS = "\"BeerApp/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"BeerApp/Resources/Preview Content\"";
 				DEVELOPMENT_TEAM = A2VGE7F94S;
 				ENABLE_PREVIEWS = YES;
-				INFOPLIST_FILE = BeerApp/Info.plist;
+				INFOPLIST_FILE = BeerApp/Resources/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
