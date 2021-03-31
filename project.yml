@@ -1,0 +1,26 @@
+name: BeerApp
+
+    # MARK: - Options
+
+options:
+  bundleIdPrefix: com.whereismybeer
+  xcodeVersion: 12.4
+  groupSortPosition: top
+  generateEmptyDirectories: true
+  deploymentTarget:
+    iOS: "14.0"
+    
+    # MARK: - Configurations
+
+configs:
+  Debug: debug
+  Release: release
+
+    # MARK: - Targets
+
+targets:
+  BeerApp:
+    platform: iOS
+    type: application
+    sources:
+      - BeerApp
