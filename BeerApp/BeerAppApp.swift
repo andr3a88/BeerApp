@@ -8,7 +8,10 @@
 import SwiftUI
 
 @main
-struct BeerAppApp: App {
+struct BeerApp: App {
+
+    @UIApplicationDelegateAdaptor(BeerAppDelegate.self) var appDelegate
+
     let persistenceController = PersistenceController.shared
 
     var body: some Scene {
