@@ -17,8 +17,6 @@ jobs:
       - name: xcodegen
         uses: xavierLowmiller/xcodegen-action@1.1.1
         with:
-          spec: project.yml
-          quiet: true
           version: '2.19.0'
       - name: Set Default Scheme
         run: |
