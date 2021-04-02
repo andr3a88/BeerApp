@@ -19,6 +19,7 @@ jobs:
         with:
           spec: project.yml
           quiet: true
+          version: '2.19.0'
       - name: Set Default Scheme
         run: |
           scheme_list=$(xcodebuild -list -json | tr -d "\n")
