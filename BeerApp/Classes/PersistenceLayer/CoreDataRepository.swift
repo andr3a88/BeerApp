@@ -14,6 +14,7 @@ enum CoreDataError: Error {
 
 /// Generic class for handling NSManagedObject subclasses.
 class CoreDataRepository<T: NSManagedObject>: Repository {
+
     typealias Entity = T
 
     /// The NSManagedObjectContext instance to be used for performing the operations.

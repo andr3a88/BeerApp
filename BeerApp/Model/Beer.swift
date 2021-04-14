@@ -42,9 +42,27 @@ struct Beer: Codable {
         case contributedBy = "contributed_by"
     }
 
-    internal init(id: Int, name: String, tagline: String, firstBrewed: String, description: String, imageURL: String, abv: Double,
-                  ibu: Double?, targetFg: Int, targetOg: Double, ebc: Int?, srm: Double?, attenuationLevel: Double,
-                  volume: BoilVolume, boilVolume: BoilVolume, ingredients: Ingredients, foodPairing: [String], brewersTips: String, contributedBy: String) {
+    internal init(
+        id: Int,
+        name: String,
+        tagline: String,
+        firstBrewed: String,
+        description: String,
+        imageURL: String,
+        abv: Double,
+        ibu: Double?,
+        targetFg: Int,
+        targetOg: Double,
+        ebc: Int?,
+        srm: Double?,
+        attenuationLevel: Double,
+        volume: BoilVolume,
+        boilVolume: BoilVolume,
+        ingredients: Ingredients,
+        foodPairing: [String],
+        brewersTips: String,
+        contributedBy: String
+    ) {
         self.id = id
         self.name = name
         self.tagline = tagline

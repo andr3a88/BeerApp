@@ -6,13 +6,14 @@
 //
 //
 
-import Foundation
 import CoreData
+import Foundation
 
 extension BeerMO {
 
-    @nonobjc public class func fetchRequest() -> NSFetchRequest<BeerMO> {
-        return NSFetchRequest<BeerMO>(entityName: "BeerMO")
+    @nonobjc
+    public class func fetchRequest() -> NSFetchRequest<BeerMO> {
+        NSFetchRequest<BeerMO>(entityName: "BeerMO")
     }
 
     @NSManaged public var desc: String
@@ -21,7 +22,7 @@ extension BeerMO {
     @NSManaged public var tagline: String
 }
 
-extension BeerMO : Identifiable {}
+extension BeerMO: Identifiable {}
 
 extension BeerMO: DomainModel {
     func toDomainModel() -> Beer {

@@ -8,8 +8,8 @@
 import CoreData
 import Foundation
 
-protocol BeerRepositoryType {
-    func getBeers(predicate: NSPredicate?) -> Result<[Beer], Error>
+protocol BeerRepositoryType: RepositoryType {
+    func get(predicate: NSPredicate?) -> Result<[Beer], Error>
     func create(beer: Beer) -> Result<Bool, Error>
 }
 
@@ -17,12 +17,12 @@ class BeerRepository: BeerRepositoryType {
 
     private let repository: CoreDataRepository<BeerMO>
 
-    init(context: NSManagedObjectContext) {
+    required init(context: NSManagedObjectContext) {
         self.repository = CoreDataRepository<BeerMO>(managedObjectContext: context)
     }
 
     @discardableResult
-    func getBeers(predicate: NSPredicate?) -> Result<[Beer], Error> {
+    func get(predicate: NSPredicate?) -> Result<[Beer], Error> {
         let result = repository.get(predicate: predicate, sortDescriptors: nil)
         switch result {
         case .success(let beersMO):

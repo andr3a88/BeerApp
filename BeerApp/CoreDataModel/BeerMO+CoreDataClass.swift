@@ -6,10 +6,8 @@
 //
 //
 
-import Foundation
 import CoreData
+import Foundation
 
 @objc(BeerMO)
-public class BeerMO: NSManagedObject {
-
-}
+public class BeerMO: NSManagedObject {}

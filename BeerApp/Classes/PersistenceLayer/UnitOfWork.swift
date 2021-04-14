@@ -9,17 +9,18 @@ import CoreData
 import Foundation
 
 /// https://www.c-sharpcorner.com/UploadFile/b1df45/unit-of-work-in-repository-pattern/
-final class UnitOfWork {
+final class UnitOfWork<T> {
 
     private let context: NSManagedObjectContext
-    
-    let beerRepository: BeerRepository
+
+    let repository: AnyRepositoryType<T>
 
     /// Init a unit of work
     /// - Parameter context: The NSManagedObjectContext instance
-    init(context: NSManagedObjectContext) {
+    init<Repo: RepositoryType>(context: NSManagedObjectContext, repositoryType: Repo.Type) where T == Repo.ManagedModel {
         self.context = context
-        self.beerRepository = BeerRepository(context: context)
+        let repo = repositoryType.init(context: context)
+        self.repository = AnyRepositoryType(repo)
     }
 
     /// Save the NSManagedObjectContext.
