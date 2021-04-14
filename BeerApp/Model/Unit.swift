@@ -8,8 +8,8 @@
 import Foundation
 
 enum Unit: String, Codable {
-    case celsius    = "celsius"
-    case grams      = "grams"
-    case kilograms  = "kilograms"
-    case litres     = "litres"
+    case celsius
+    case grams
+    case kilograms
+    case litres
 }

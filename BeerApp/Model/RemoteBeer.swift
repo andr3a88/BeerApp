@@ -16,7 +16,7 @@ struct RemoteBeer: Codable {
     let targetFg: Int
     let targetOg: Double
     let ebc: Int?
-    let srm, ph: Double?
+    let srm: Double?
     let attenuationLevel: Double
     let volume, boilVolume: BoilVolume
     let ingredients: Ingredients
@@ -32,7 +32,7 @@ struct RemoteBeer: Codable {
         case abv, ibu
         case targetFg = "target_fg"
         case targetOg = "target_og"
-        case ebc, srm, ph
+        case ebc, srm
         case attenuationLevel = "attenuation_level"
         case volume
         case boilVolume = "boil_volume"
