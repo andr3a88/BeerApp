@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="17709" systemVersion="20D91" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="BeerMO" representedClassName="BeerMO" syncable="YES">
+        <attribute name="desc" attributeType="String"/>
+        <attribute name="id" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="name" attributeType="String"/>
+        <attribute name="tagline" attributeType="String"/>
+    </entity>
+    <elements>
+        <element name="BeerMO" positionX="-63" positionY="-9" width="128" height="89"/>
+    </elements>
+</model>

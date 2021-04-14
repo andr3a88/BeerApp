@@ -8,7 +8,7 @@
 import Foundation
 
 struct GetBeersService: BeerNetworkService {
-    typealias ResponseModel = [RemoteBeer]
+    typealias ResponseModel = [Beer]
     
     let endpoint: String = "beers"
 }

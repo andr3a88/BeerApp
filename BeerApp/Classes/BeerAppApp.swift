@@ -12,12 +12,12 @@ struct BeerApp: App {
 
     @UIApplicationDelegateAdaptor(BeerAppDelegate.self) var appDelegate
 
-    let persistenceController = PersistenceController.shared
+    let coreDataContextProvider = CoreDataContextProvider.shared
 
     var body: some Scene {
         WindowGroup {
             ContentView()
-                .environment(\.managedObjectContext, persistenceController.container.viewContext)
+                .environment(\.managedObjectContext, coreDataContextProvider.viewContext)
         }
     }
 }
