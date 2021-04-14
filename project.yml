@@ -24,3 +24,6 @@ targets:
     type: application
     sources:
       - BeerApp
+    postCompileScripts:
+      - script: swiftlint
+        name: Swiftlint
