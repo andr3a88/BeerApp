@@ -4,12 +4,16 @@ disabled_rules:
 
 opt_in_rules:
     - array_init
+    - attributes
     - closure_spacing
     - closure_body_length
+    - closure_end_indentation
     - collection_alignment
     - contains_over_filter_is_empty
     - contains_over_filter_count
     - contains_over_first_not_nil
+    - convenience_type
+    - comment_spacing
     - discouraged_object_literal
     - duplicate_enum_cases
     - empty_count
@@ -17,7 +21,9 @@ opt_in_rules:
     - empty_xctest_method
     - explicit_init
     - extension_access_modifier
+    - fallthrough
     - fatal_error_message
+    - file_name
     - file_name_no_space
     - first_where
     - flatmap_over_map_reduce
@@ -30,8 +36,8 @@ opt_in_rules:
     - multiline_function_chains
     - operator_usage_whitespace
     - overridden_super_call
-    - private_action # Keeps your UI code closed within the implementation class and it avoids leaking UIKit to higher layers.
-    - private_outlet # Keeps your UI code closed within the implementation class and it avoids leaking UIKit to higher layers.
+    - private_action
+    - private_outlet
     - prohibited_super_call
     - quick_discouraged_call
     - redundant_optional_initialization
@@ -44,9 +50,10 @@ opt_in_rules:
     - unused_capture_list
     - unused_declaration
     - unused_import
+    - unneeded_parentheses_in_closure_argument
     - vertical_parameter_alignment_on_call
     - vertical_whitespace_closing_braces
-    - comment_spacing
+    - yoda_condition
 
 included: # paths to include during linting. `--path` is ignored if present.
     - ./
@@ -90,6 +97,15 @@ type_name:
         warning: 55
         error: 60
     allowed_symbols: ["_"]
+
+identifier_name:
+    min_length:
+        error: 3
+    excluded:
+        - id
+
+file_name:
+    prefix_pattern: "Extensions?|\\+.*"
 
 reporter: "xcode" # reporter type (xcode, json, csv, checkstyle, junit, html, emoji)
 

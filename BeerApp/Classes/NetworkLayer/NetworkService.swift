@@ -5,7 +5,6 @@
 //  Created by Davide Sibilio on 02/04/21.
 //
 
-
 import Foundation
 
 public typealias CachePolicy = URLRequest.CachePolicy

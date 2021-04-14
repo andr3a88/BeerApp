@@ -8,14 +8,18 @@
 import Combine
 import Foundation
 
-extension NetworkService {
-    public func getDeferred(taskQueue: DispatchQueue = .global(qos: .utility)) -> AnyPublisher<NetworkResponse<Self.ResponseModel>, Error> {
+public extension NetworkService {
+    func getDeferred(taskQueue: DispatchQueue = .global(qos: .utility)) -> AnyPublisher<NetworkResponse<Self.ResponseModel>, Error> {
         Deferred {
-            Future() { promise in
-                self.perform(queue: taskQueue) { result in
-                    promise(result)
-                }
-            }
+            getFuture(taskQueue: taskQueue)
         }.eraseToAnyPublisher()
+    }
+
+    func getFuture(taskQueue: DispatchQueue = .global(qos: .utility)) -> Future<NetworkResponse<Self.ResponseModel>, Error> {
+        Future { promise in
+            self.perform(queue: taskQueue) { result in
+                promise(result)
+            }
+        }
     }
 }
