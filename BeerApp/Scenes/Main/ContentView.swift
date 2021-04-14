@@ -20,7 +20,7 @@ struct ContentView: View {
     var body: some View {
         List {
             ForEach(items) { item in
-                Text("Beer \(item.name!)")
+                Text("Beer \(item.name)")
             }
             .onDelete(perform: deleteItems)
         }
