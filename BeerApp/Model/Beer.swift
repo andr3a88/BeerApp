@@ -16,7 +16,7 @@ struct Beer: Codable {
     let targetFg: Int
     let targetOg: Double
     let ebc: Int?
-    let srm, ph: Double?
+    let srm: Double?
     let attenuationLevel: Double
     let volume, boilVolume: BoilVolume
     let ingredients: Ingredients
@@ -32,7 +32,7 @@ struct Beer: Codable {
         case abv, ibu
         case targetFg = "target_fg"
         case targetOg = "target_og"
-        case ebc, srm, ph
+        case ebc, srm
         case attenuationLevel = "attenuation_level"
         case volume
         case boilVolume = "boil_volume"
@@ -43,7 +43,7 @@ struct Beer: Codable {
     }
 
     internal init(id: Int, name: String, tagline: String, firstBrewed: String, description: String, imageURL: String, abv: Double,
-                  ibu: Double?, targetFg: Int, targetOg: Double, ebc: Int?, srm: Double?, ph: Double?, attenuationLevel: Double,
+                  ibu: Double?, targetFg: Int, targetOg: Double, ebc: Int?, srm: Double?, attenuationLevel: Double,
                   volume: BoilVolume, boilVolume: BoilVolume, ingredients: Ingredients, foodPairing: [String], brewersTips: String, contributedBy: String) {
         self.id = id
         self.name = name
@@ -57,7 +57,6 @@ struct Beer: Codable {
         self.targetOg = targetOg
         self.ebc = ebc
         self.srm = srm
-        self.ph = ph
         self.attenuationLevel = attenuationLevel
         self.volume = volume
         self.boilVolume = boilVolume
@@ -70,7 +69,7 @@ struct Beer: Codable {
     static func getStub(name: String = "Beer") -> Beer {
         Beer(id: 0, name: name, tagline: "", firstBrewed: "", description: "",
              imageURL: "", abv: 0, ibu: 0, targetFg: 0, targetOg: 0,
-             ebc: 0, srm: 0, ph: 0, attenuationLevel: 0, volume: BoilVolume(value: 0, unit: .kilograms),
+             ebc: 0, srm: 0, attenuationLevel: 0, volume: BoilVolume(value: 0, unit: .kilograms),
              boilVolume: BoilVolume(value: 0, unit: .kilograms), ingredients: Ingredients(malt: [], hops: [], yeast: ""),
              foodPairing: [], brewersTips: "",
              contributedBy: "")
