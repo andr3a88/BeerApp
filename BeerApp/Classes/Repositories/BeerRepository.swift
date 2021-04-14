@@ -21,7 +21,8 @@ class BeerRepository: BeerRepositoryType {
         self.repository = CoreDataRepository<BeerMO>(managedObjectContext: context)
     }
 
-    @discardableResult func getBeers(predicate: NSPredicate?) -> Result<[Beer], Error> {
+    @discardableResult
+    func getBeers(predicate: NSPredicate?) -> Result<[Beer], Error> {
         let result = repository.get(predicate: predicate, sortDescriptors: nil)
         switch result {
         case .success(let beersMO):
@@ -34,10 +35,12 @@ class BeerRepository: BeerRepositoryType {
         }
     }
 
-    @discardableResult func create(beer: Beer) -> Result<Bool, Error> {
+    @discardableResult
+    func create(beer: Beer) -> Result<Bool, Error> {
         let result = repository.create()
         switch result {
         case .success(let beerMO):
+            beerMO.id = Int32(beer.id)
             beerMO.name = beer.name
             // TODO: Complete with remaining properties
             return .success(true)

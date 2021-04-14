@@ -23,11 +23,12 @@ final class UnitOfWork {
     }
 
     /// Save the NSManagedObjectContext.
-    @discardableResult func saveChanges() -> Result<Bool, Error> {
+    @discardableResult
+    func saveChanges() -> Result<Bool, Error> {
         do {
             try context.save()
             return .success(true)
-        } catch {
+        } catch let error {
             context.rollback()
             return .failure(error)
         }

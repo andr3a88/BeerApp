@@ -23,10 +23,9 @@ class CoreDataContextProvider {
         if inMemory {
             persistentContainer.persistentStoreDescriptions.first!.url = URL(fileURLWithPath: "/dev/null")
         }
-        persistentContainer.loadPersistentStores() { (description, error) in
+        persistentContainer.loadPersistentStores { description, error in
             if let error = error {
                 fatalError("Failed to load Core Data stack: \(error)")
-
             }
             completionClosure?(error)
         }
@@ -55,5 +54,4 @@ extension CoreDataContextProvider {
         }
         return result
     }()
-
 }
