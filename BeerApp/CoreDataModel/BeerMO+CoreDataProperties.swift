@@ -15,16 +15,16 @@ extension BeerMO {
         return NSFetchRequest<BeerMO>(entityName: "BeerMO")
     }
 
-    @NSManaged public var desc: String?
+    @NSManaged public var desc: String
     @NSManaged public var id: Int32
-    @NSManaged public var name: String?
-    @NSManaged public var tagline: String?
+    @NSManaged public var name: String
+    @NSManaged public var tagline: String
 }
 
 extension BeerMO : Identifiable {}
 
 extension BeerMO: DomainModel {
     func toDomainModel() -> Beer {
-        Beer.getStub()
+        Beer.getStub(name: name)
     }
 }
