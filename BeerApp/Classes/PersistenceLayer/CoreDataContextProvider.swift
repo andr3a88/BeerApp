@@ -23,7 +23,7 @@ class CoreDataContextProvider {
         if inMemory {
             persistentContainer.persistentStoreDescriptions.first!.url = URL(fileURLWithPath: "/dev/null")
         }
-        persistentContainer.loadPersistentStores { description, error in
+        persistentContainer.loadPersistentStores { _, error in
             if let error = error {
                 fatalError("Failed to load Core Data stack: \(error)")
             }
@@ -34,24 +34,4 @@ class CoreDataContextProvider {
     func newBackgroundContext() -> NSManagedObjectContext {
         persistentContainer.newBackgroundContext()
     }
-}
-
-extension CoreDataContextProvider {
-
-    /// Previews for SwiftUI
-    static var preview: CoreDataContextProvider = {
-        let result = CoreDataContextProvider(inMemory: true)
-        let viewContext = result.viewContext
-        for counter in 0..<10 {
-            let beer = BeerMO(context: viewContext)
-            beer.name = "Beer \(counter)"
-        }
-        do {
-            try viewContext.save()
-        } catch {
-            let nsError = error as NSError
-            fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
-        }
-        return result
-    }()
 }

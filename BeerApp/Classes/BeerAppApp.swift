@@ -16,8 +16,7 @@ struct BeerApp: App {
 
     var body: some Scene {
         WindowGroup {
-            ContentView()
-                .environment(\.managedObjectContext, coreDataContextProvider.viewContext)
+            BeerListView()
         }
     }
 }

@@ -14,8 +14,10 @@ protocol RepositoryType {
 
     init(context: NSManagedObjectContext)
 
-    func get(predicate: NSPredicate?) -> Result<[ManagedModel], Error>
+    func get(predicate: NSPredicate?, sortDescriptors: [NSSortDescriptor]?) -> Result<[ManagedModel], Error>
     func create(beer: ManagedModel) -> Result<Bool, Error>
+    func delete(id: Int) -> Result<Bool, Error>
+    func deleteAll() -> Result<Bool, Error>
 }
 
 extension RepositoryType {

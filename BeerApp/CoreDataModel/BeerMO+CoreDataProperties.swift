@@ -26,6 +26,6 @@ extension BeerMO: Identifiable {}
 
 extension BeerMO: DomainModel {
     func toDomainModel() -> Beer {
-        Beer.getStub(name: name)
+        Beer.getStub(id: id, name: name, tagline: tagline, description: desc)
     }
 }

@@ -20,6 +20,7 @@ class BeerAppDelegate: NSObject, UIApplicationDelegate {
             .sink { completion in
                 print("Completion: \(completion)")
             } receiveValue: { value in
+                unitOfWork.repository.deleteAll()
                 value.model.forEach {
                     unitOfWork.repository.create(beer: $0)
                 }

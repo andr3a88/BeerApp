@@ -57,12 +57,29 @@ class CoreDataRepository<T: NSManagedObject>: Repository {
         }
         return .success(managedObject)
     }
-
+    
     /// Deletes a NSManagedObject entity.
     /// - Parameter entity: The NSManagedObject to be deleted.
     /// - Returns: A result consisting of either a Bool set to true or an Error.
+    @discardableResult
     func delete(entity: Entity) -> Result<Bool, Error> {
         managedObjectContext.delete(entity)
         return .success(true)
+    }
+
+    /// Deletes all NSManagedObject for the entity.
+    /// - Parameter entity: The NSManagedObject to be deleted.
+    /// - Returns: A result consisting of either a Bool set to true or an Error.
+    @discardableResult
+    func deleteAll() -> Result<Bool, Error> {
+        let fetchRequest = Entity.fetchRequest()
+        let deleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest)
+
+        do {
+            try managedObjectContext.execute(deleteRequest)
+            return .success(true)
+        } catch let error {
+            return .failure(error)
+        }
     }
 }

@@ -84,8 +84,8 @@ struct Beer: Codable {
         self.contributedBy = contributedBy
     }
 
-    static func getStub(name: String = "Beer") -> Beer {
-        Beer(id: 0, name: name, tagline: "", firstBrewed: "", description: "",
+    static func getStub(id: Int32, name: String, tagline: String, description: String) -> Beer {
+        Beer(id: Int(id), name: name, tagline: tagline, firstBrewed: "", description: description,
              imageURL: "", abv: 0, ibu: 0, targetFg: 0, targetOg: 0,
              ebc: 0, srm: 0, attenuationLevel: 0, volume: BoilVolume(value: 0, unit: .kilograms),
              boilVolume: BoilVolume(value: 0, unit: .kilograms), ingredients: Ingredients(malt: [], hops: [], yeast: ""),

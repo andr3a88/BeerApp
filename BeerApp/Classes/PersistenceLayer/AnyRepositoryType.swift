@@ -11,12 +11,16 @@ class AnyRepositoryType<AnyManagedModel>: RepositoryType {
 
     typealias ManagedModel = AnyManagedModel
 
-    private let _get: (NSPredicate?) -> Result<[ManagedModel], Error>
+    private let _get: (NSPredicate?, [NSSortDescriptor]?) -> Result<[ManagedModel], Error>
     private let _create: (ManagedModel) -> Result<Bool, Error>
+    private let _delete: (Int) -> Result<Bool, Error>
+    private let _deleteAll: () -> Result<Bool, Error>
 
     init<T: RepositoryType>(_ repository: T) where T.ManagedModel == AnyManagedModel {
         self._get = repository.get
         self._create = repository.create
+        self._delete = repository.delete
+        self._deleteAll = repository.deleteAll
     }
 
     required init(context: NSManagedObjectContext) {
@@ -24,12 +28,22 @@ class AnyRepositoryType<AnyManagedModel>: RepositoryType {
     }
 
     @discardableResult
-    func get(predicate: NSPredicate?) -> Result<[AnyManagedModel], Error> {
-        _get(predicate)
+    func get(predicate: NSPredicate?, sortDescriptors: [NSSortDescriptor]?) -> Result<[AnyManagedModel], Error> {
+        _get(predicate, sortDescriptors)
     }
 
     @discardableResult
     func create(beer: AnyManagedModel) -> Result<Bool, Error> {
         _create(beer)
+    }
+
+    @discardableResult
+    func delete(id: Int) -> Result<Bool, Error> {
+        _delete(id)
+    }
+
+    @discardableResult
+    func deleteAll() -> Result<Bool, Error> {
+        _deleteAll()
     }
 }
