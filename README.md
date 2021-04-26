@@ -38,3 +38,7 @@ brew install xcodegen
 + [XCMetrics](https://github.com/spotify/XCMetrics/blob/main/docs/Run%20the%20Backend%20Locally.md) - [iOS Conf SG 2021](https://www.youtube.com/watch?v=6p8kveO1m00)
 + [Mock with Sourcery](https://www.vadimbulavin.com/mocking-in-swift-using-sourcery/) or [Mockolo](https://github.com/uber/mockolo)
 + Github Actions
+
+## Lecture
+
++ [Debugging Core Data](https://useyourloaf.com/blog/debugging-core-data/)

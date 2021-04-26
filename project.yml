@@ -27,3 +27,11 @@ targets:
     postCompileScripts:
       - script: swiftlint
         name: Swiftlint
+    scheme:
+      testTargets:
+        - BeerAppTests
+  BeerAppTests:
+    platform: iOS
+    type: bundle.unit-test
+    sources:
+      - BeerAppTests
