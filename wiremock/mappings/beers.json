@@ -1,0 +1,14 @@
+{
+    "request": {
+        "method": "GET",
+        "url": "/v2/beers"
+    },
+    "response": {
+        "status": 200,
+        "bodyFileName": "beers.json",
+        "headers": {
+            "Content-Type": "application/json"
+        }
+    }
+}
+
